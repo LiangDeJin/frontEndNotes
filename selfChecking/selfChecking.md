@@ -66,6 +66,7 @@
 	
 	思考2: 如何判断数据类型 ？
 	
+	[判断JS数据类型的四种方法](https://www.cnblogs.com/onepixel/p/5126046.html)
 	
 * JavaScript对象的底层数据结构是什么
 
@@ -79,6 +80,33 @@
 
 * null和 undefined的区别
 
+		Null: 空值 空对象/对象不存在 
+				表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象。作为函数参数，表示该函数的参数不是对象
+				
+				作为对象原型链的终点
+```js
+	Object.getPrototypeOf(Object.prototype)
+```
+				
+		Undefined: 缺失值
+		
+				所有已声明但是没有初始化的变量，默认值都为undefined。
+```js
+	let a
+```
+				函数没有明确返回值的时候，会默认返回undefined。
+```js
+	var x = f();
+```
+				调用函数时应该提供的参数还没有提供，该参数就等于undefined
+```js
+	function f(x){console.log(x)}
+```
+				对象没有赋值的属性，该属性的值就等于undefined
+```js
+	var  o = new Object();
+	o.p 
+```
 * 至少可以说出三种判断 JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型
 
 * 可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用

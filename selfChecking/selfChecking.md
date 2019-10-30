@@ -86,29 +86,28 @@
 			表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象。作为函数参数，表示该函数的参数不是对象
 				
 			作为对象原型链的终点
-```js
-	Object.getPrototypeOf(Object.prototype)
-```
+		
+			Object.getPrototypeOf(Object.prototype)		
 				
 		Undefined: 缺失值
 		
 				所有已声明但是没有初始化的变量，默认值都为undefined。
-```js
-	let a
-```
+
+				let a
+
 				函数没有明确返回值的时候，会默认返回undefined。
-```js
-	var x = f();
-```
+
+				var x = f();
+
 				调用函数时应该提供的参数还没有提供，该参数就等于undefined
-```js
-	function f(x){console.log(x)}
-```
+
+				function f(x){console.log(x)}
+
 				对象没有赋值的属性，该属性的值就等于undefined
-```js
-	var  o = new Object();
-	o.p 
-```
+
+				var  o = new Object();
+				o.p 
+
 * 至少可以说出三种判断 JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型
 
 * 可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用
@@ -582,6 +581,73 @@
 * 理解 Git的核心原理、工作流程、和 SVN的区别
 
 * 熟练使用常规的 Git命令、 git rebase、 git stash等进阶命令
+		
+常规Git命令：
+		
+		git help(查看帮助命令)
+		
+		git clone (克隆远程的地址下载到本地)
+		
+		git init (初始化仓库)
+		
+		git branch (显示所有分支)
+		
+		git branch -d <branchname>(删除分支)
+		
+		git checkout mater (去到master这个分支)
+		
+		git checkout -b mybranch(创建并切换分支)
+				
+		git checkout -b mybranch origin/mybranch(取远程分支并分化一个新分支)
+		
+		git pull origin master(拉取master)
+		
+		git checkout -b ldj2 (在master下创建一个名为 ldj2的分支)
+		
+		git checkout -b ldj2 ldj3 (在master下的ldj2分支下创建一个名为ldj3的分支)
+		
+		git status (查看当前文件状态)
+		
+		git diff filename （查看filename这个文件做的那些修改）
+		
+		git add filename (添加要提交的文件)
+		
+		git commit -m “write you annotation here” (提交，引号里面写注释)
+		
+		git push(上传本地所有分支代码到远程对应的分支上。)
+		
+		git push origin master(传本地当前分支代码到master分支)
+		
+		git merge origin/maste(把远程下载下来的代码合并到本地仓库，远程的和本地的合并)
+		
+		git remote -v(查询当前远程的版本)
+		
+		git fetch origin master(从远程获取最新版本到本地)
+		
+git rebase:(这个命令个人用的比较少)		
+		
+		
+		
+		
+		
+		
+git stash:用于保存和恢复工作进度 (这个命令很有效)
+		
+		git stash(保存当前的工作进度。会分别对暂存区和工作区的状态进行保存)		
+				
+		git stash save "message..."	(这条命令实际上是第一条 git stash 命令的完整版)	
+		
+		git stash list(显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择)	
+			
+		git stash pop [--index] [<stash>]	(如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。		
+		如果提供参数（来自 git stash list 显示的列表），则从该 <stash> 中恢复。恢复完毕也将从进度列表中删除 <stash>。		
+		选项--index 除了恢复工作区的文件外，还尝试恢复暂存区。)	
+			
+		git stash apply [--index] [<stash>]	(除了不删除恢复的进度之外，其余和 git stash pop 命令一样)	
+				
+		git stash clear	(删除所有存储的进度)
+		
+		
 
 * 可以快速解决 线上分支回滚、 线上分支错误合并等复杂问题
 

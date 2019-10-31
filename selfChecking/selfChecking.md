@@ -624,7 +624,11 @@
 		
 		git fetch origin master(从远程获取最新版本到本地)
 		
-git rebase:(这个命令个人用的比较少)		
+git rebase:(变基其实也是一种合并分支的方法【个人用的特别的少】变基的作用就是修整历史，将分支历史并入主线。)
+		
+[git rebase使用笔记](https://www.jianshu.com/p/cca69cb695a6)
+		
+		
 		
 		
 		

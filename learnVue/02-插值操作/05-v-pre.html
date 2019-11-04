@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+        
+        <div id="app">
+            <!-- {{}} mustach 语法可以直接写变量，也可以写表达式 -->
+            <h4>{{message}}</h4>
+            <h4>{{firstName + ' ' + LastName}}</h4>
+            <h4>{{count*2}}</h4>
+            <h4 v-once>{{message}}</h4>
+            <!-- v-once 1.后面不需要跟任何表达式 
+                        2.该指令表示元素和组件只渲染一次，不会随着数据改变而改变 -->
+            
+            <h4 v-html="baidu">123</h4>
+            <h4 >{{baidu}}</h4>
+            <!-- v-html 往往跟上一个string类型，会将string的html解析并渲染 -->
+            
+             <h4 v-text="message01">123</h4>
+              
+             <h4 v-pre>{{message01}}</h4>
+             <!-- v-pre 用于跳过这个元素和它子元素的编译过程，用于显示原本的Mustache语法-->
+            
+        </div>
+        
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+            	el:"#app",
+                data:{
+                    message:"mustache",
+                    firstName:"Crystal",
+                    LastName:"Liang",
+                    count:1,
+                    baidu:"<a href='www.baidu.com'>百度一下</a>",
+                    message01:"hello"
+                    
+                }
+            })
+        </script>
+	</body>
+</html>

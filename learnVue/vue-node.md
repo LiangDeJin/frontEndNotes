@@ -18,10 +18,39 @@ vue js 知识量化
 		状态管理
 		
 		虚拟DOM
-	
--  [初识]()
+    
+      el: 
+            类型:string|HTMLElement
+            作用:之后的Vue实例管理哪一个DOM
+      
+      dat: 
+            类型:Object|Function
+            作用:Vue实例对应的数据对象
+          
+      methods: 
+            类型：{[key:string]|Function}
+            作用:定义属于Vue是的方法
+        
+  
+      
 
 2.Vue 基础语法
+  
+      1.插值操作
+      
+      2.绑定属性
+      
+      3.计算属性
+      
+      4.事件监听
+      
+      5.条件判断
+      
+      6.循环遍历
+      
+      7.阶段案例
+  
+  8.v-model
 
 3.组件化开发
 

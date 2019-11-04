@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+        
+        <div id="app">
+            <!-- {{}} mustach 语法可以直接写变量，也可以写表达式 -->
+            <h4>{{message}}</h4>
+            <h4>{{firstName + ' ' + LastName}}</h4>
+            <h4>{{count*2}}</h4>
+            <h4>{{message}}</h4>
+        </div>
+        
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+            	el:"#app",
+                data:{
+                    message:"mustache",
+                    firstName:"Crystal",
+                    LastName:"Liang",
+                    count:1
+                    
+                }
+            })
+        </script>
+	</body>
+</html>

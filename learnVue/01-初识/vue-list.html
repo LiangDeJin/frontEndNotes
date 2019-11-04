@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+    
+    <div id="app">
+    	<ul v-for="item in music">
+        <li>{{item}}</li>
+      </ul>
+    </div>
+    
+		<script src="../js/vue.js"></script>
+		<script>
+      const app = new Vue({
+      	el:"#app",
+        data:{
+          music:["A","B","C","D"]
+        }
+      })
+    </script>
+	</body>
+</html>

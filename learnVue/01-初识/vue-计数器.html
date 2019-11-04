@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+    
+    <div id="app">
+      计数器 {{count}}
+      <!-- v-on:click="count++" 也可以写表达式  语法糖@click -->
+      <button @click="add">+</button>
+      <button @click="sub">-</button>
+    </div>
+    
+    
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+      	el:"#app",
+        data:{
+          count:0
+        },
+        methods:{
+          add:function(){
+           this.count++ ;
+          },
+          sub:function(){
+            this.count-- ;
+          }
+        }
+      })
+    </script>
+	</body>
+</html>

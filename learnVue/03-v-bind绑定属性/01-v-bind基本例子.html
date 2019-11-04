@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+        <div id="app">
+            <!-- v-bind 用于绑定一个或多个属性 或者向另外一个组件传递props值 -->
+            <img v-bind:src="logoUrl" />
+            <!-- 语法糖 -->
+            <a :href="url">百度一下</a>
+        </div>
+        
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+            	el:"#app",
+                data:{
+                  logoUrl:"https://cn.vuejs.org/images/logo.png",
+                  url:"https://www.baidu.com" 
+                }
+            })
+        </script>
+	</body>
+</html>

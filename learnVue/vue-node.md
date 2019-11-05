@@ -32,13 +32,35 @@ vue js 知识量化
             作用:定义属于Vue是的方法
         
   
-      
+[01-初识](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/%E5%88%9D%E8%AF%86.html)
+
+[02-vue-list](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/vue-list.html)
+
+[03-vue-计数器](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/vue-%E8%AE%A1%E6%95%B0%E5%99%A8.html)
 
 2.Vue 基础语法
   
       1.插值操作
       
+   [01-mustache](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/01-mustache.html)
+
+   [02-vue-once](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/02-v-once.html)
+
+   [03-vue-html](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/02-v-html.html)
+
+   [04-vue-text](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/02-v-text.html)
+
+   [05-vue-pre](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/02-v-pre.html)
+
+   [06-vue-cloak](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/02-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9C/02-v-cloak.html)
+      
+      
       2.绑定属性
+ 
+   [01-vue-bine动态绑定class](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/01-v-bind%E5%9F%BA%E6%9C%AC%E4%BE%8B%E5%AD%90.html)
+   
+   [02-vue-bind基本例子](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/02-v-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass.html)
+   
       
       3.计算属性
       

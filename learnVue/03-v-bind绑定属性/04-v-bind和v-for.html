@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+        <style>
+            .Active {
+                color: red;
+            }
+			.green{
+				color: green;
+				
+			}
+        </style>
+	</head>
+	<body>
+        <div id="app">
+            <!-- v-bind 用于绑定一个或多个属性 或者向另外一个组件传递props值 -->
+            <img v-bind:src="logoUrl" />
+            <!-- 语法糖 -->
+            <a :href="url">百度一下</a>
+            
+            <h2 :class="{Active:isActive}">Hello</h2>
+            <!-- 绑定class有两种方式 对象语法和数组语法
+                    对象语法：Class 后面跟一个对象
+                    1.直接通过 {} 绑定一个类
+					2.通过判断，传入多个值
+					:class="{'active':isActive,line':isLine'}"
+					3.和普通的类同时存在 并不冲突
+					:class="{'active':isActive,line':isLine'}" class="title"
+					4.过于复杂，可以放到一个methods或者computed中-->
+			<h2 :class="getClass()">Vue</h2>
+            <button @click="Change">改变</button>
+			
+			
+			<!-- 数组语法 -->
+			<h2 class="title" :class="[active,line]">数组语法</h2>			
+			<h2 class="title" :class="['active','line']">数组语法</h2>
+			
+			
+			
+			<!-- 点击列表中的某一项，那么该项的文字变成色 -->			
+			<h2 v-for="(list,index) in list" @click="changeRed(index)" :class="getRedClass(index)"  >{{index}}--{{list}}</h2>
+			
+			
+        </div>
+        
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+            	el:"#app",
+                data:{
+                  logoUrl:"https://cn.vuejs.org/images/logo.png",
+                  url:"https://www.baidu.com",
+                  isActive:true,
+				  active:"aaa",
+				  line:"bbbbbbbb",
+				  list:["a","b","c","d"],
+				  index:null,
+				  green:false,
+                },
+                methods:{
+                    Change:function(){
+                        this.isActive = !this.isActive;
+                    },
+					getClass:function(){
+						return {Active:this.isActive};
+					},
+					changeRed:function(index){
+						this.index = index;
+					},
+					getRedClass:function(index){ 
+						return {green:this.index == index? true:false}
+					}
+                }
+            })
+        </script>
+	</body>
+</html>

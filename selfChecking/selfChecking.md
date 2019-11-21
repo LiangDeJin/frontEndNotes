@@ -71,6 +71,16 @@
 	[判断JS数据类型的四种方法](https://www.cnblogs.com/onepixel/p/5126046.html)
 	
 * JavaScript对象的底层数据结构是什么
+	
+	[从Chrome源码看JS Object的实现](https://zhuanlan.zhihu.com/p/26169639)
+	![object 类图](../selfChecking/object.png)
+   Object:根父母
+   HeadObject:提供存储基本功能
+   JSReceiver:用于原型查找
+   JSObject: JS Object       FixedArray:实际存储数据的地方
+   
+	
+	
 
 * Symbol类型在实际开发中的应用、可手动实现一个简单的 Symbol
 

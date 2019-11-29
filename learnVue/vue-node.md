@@ -57,9 +57,15 @@ vue js 知识量化
       
       2.绑定属性
  
-   [01-vue-bine动态绑定class](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/01-v-bind%E5%9F%BA%E6%9C%AC%E4%BE%8B%E5%AD%90.html)
+   [01-vue-bine基本例子](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/01-v-bind%E5%9F%BA%E6%9C%AC%E4%BE%8B%E5%AD%90.html)
    
-   [02-vue-bind基本例子](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/02-v-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass.html)
+   [02-vue-bind动态绑定class(对象语法)](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/02-v-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass(%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95).html)
+   
+   [03-vue-bind动态绑定class(数组语法)](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/03-v-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aclass(%E6%95%B0%E7%BB%84%E8%AF%AD%E6%B3%95).html)
+   
+   [04-vue-bind和v-for](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/04-v-bind%E5%92%8Cv-for.html)
+   
+   [05-vue-bind动态绑定style(对象语法和数组语法)](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/03-v-bind%E7%BB%91%E5%AE%9A%E5%B1%9E%E6%80%A7/05-v-bind%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Astyle(%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E8%AF%AD%E6%B3%95).html)
    
       
       3.计算属性

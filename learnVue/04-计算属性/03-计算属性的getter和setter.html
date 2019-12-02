@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h2>{{fullName}}</h2>
+			<h2>{{getFullName()}}</h2>
+			
+			
+			<h2> 总价格 {{total}}</h2>
+			
+			<h2>{{fullName1}}</h2>
+		</div>
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			const app  = new Vue({
+				el:'#app',
+				data:{
+					firstName:'Liang',
+					lastName:'Crystal',
+					book:[
+						{"id":1,"name":"编程艺术1","price":12},
+						{"id":2,"name":"编程艺术2","price":12},
+						{"id":3,"name":"编程艺术3","price":12},
+						{"id":4,"name":"编程艺术4","price":12},
+					]
+				},
+				// 计算属性
+				computed:{
+					fullName:function(){
+						return this.firstName+' '+this.lastName
+					},
+					total:function(){
+						// ES5
+						let total = 0;
+						for(let i = 0;i<this.book.length;i++){
+							total = total + this.book[i].price
+						}
+						return total
+						
+						// ES6
+						// for(let i in this.book){}
+						// for(let book of this.book){}
+					},
+					// set 不常用
+					fullName1:{
+						set:function(newValue){
+							let changeValue = newValue.split(' ');
+							this.firstName = changeValue[0];
+							this.lastName=changeValue[1];
+						},
+						get:function(){
+							return this.firstName+' '+this.lastName
+						}
+					}
+				},
+				methods:{
+					getFullName:function(){
+						return this.firstName+' '+this.lastName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

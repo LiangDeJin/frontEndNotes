@@ -55,6 +55,10 @@
 			<span :style="{fontSize:finalSize}"> style </span>
 			<span :style="{fontSize:finalSize2 + 'px'}"> style </span>
 			
+			
+			<!-- 数组语法 style后面跟一个数组类型 多个值以,分割即可 -->
+			<span :style="[style1,style2]">style</span>
+			
         </div>
         
         <script src="../js/vue.js"></script>
@@ -71,7 +75,9 @@
 				  index:null,
 				  green:false,
 				  finalSize:'100px',
-				  finalSize2:100
+				  finalSize2:100,
+				  style1:{"color":"red"},
+				  style2:{"fontSize":"100px"},
                 },
                 methods:{
                     Change:function(){

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h2>{{fullName}}</h2>
+			<h2>{{fullName}}</h2>
+			<h2>{{fullName}}</h2>
+			<h2>{{fullName}}</h2>
+			
+			
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullName()}}</h2>
+			
+			
+		</div>
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			const app  = new Vue({
+				el:'#app',
+				data:{
+					firstName:'Liang',
+					lastName:'Crystal',
+				},
+				// 计算属性 数据不变化 缓存  多次执行计算属性只会调用一次
+				computed:{
+					fullName:function(){
+						console.log("computed");
+						return this.firstName+' '+this.lastName
+					}
+				},
+				methods:{
+					getFullName:function(){
+						console.log("methods")
+						return this.firstName+' '+this.lastName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

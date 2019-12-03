@@ -80,6 +80,14 @@ vue js 知识量化
       
       3.计算属性
 	  
+   [01-计算属性的基本使用](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/04-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/01-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html)
+   
+   [02-计算属性的复杂操作](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/04-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/02-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%9A%84%E5%A4%8D%E6%9D%82%E6%93%8D%E4%BD%9C.html)
+   
+   [03-计算属性的getter和setter](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/04-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/03-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%9A%84getter%E5%92%8Csetter.html)
+   
+   [04-计算属性和methods的对比](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/04-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/04-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8Cmethods%E7%9A%84%E5%AF%B9%E6%AF%94.html)
+   
 	  
       
       4.事件监听

@@ -42,9 +42,9 @@ vue js 知识量化
             作用:定义属于Vue是的方法
         
   
-[01-初识](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/%E5%88%9D%E8%AF%86.html)
+[01-初识](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/%E5%88%9D%E8%AF%86.html)
 
-[02-vue-list](http://htmlpreview.github.io/?https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/vue-list.html)
+[02-vue-list](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/vue-list.html)
 
 [03-vue-计数器](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/learnVue/01-%E5%88%9D%E8%AF%86/vue-%E8%AE%A1%E6%95%B0%E5%99%A8.html)
 

@@ -70,7 +70,7 @@
 	
 	[判断JS数据类型的四种方法](https://www.cnblogs.com/onepixel/p/5126046.html)
 	
-* JavaScript对象的底层数据结构是什么
+* JavaScript对象的底层数据结构是什么 
 	
 	[从Chrome源码看JS Object的实现](https://zhuanlan.zhihu.com/p/26169639)
 	![object 类图](../selfChecking/object.png)

@@ -6,12 +6,24 @@
 	</head>
 	<body>
 		<div id="app">
-			<!-- 事件调用的方法没有参数  -->
+			<!-- 事件调用的方法没有参数 那么方法后的（）可以不添加 
+						如果方法本身有一个参数，那么会默认将原生事件event参数传递进去-->
 			<button @click="btn1Click">按钮一</button>
-			<button @click="btn2Click">按钮二</button>
-			<button @click="btn3Click">按钮三</button>
-			<button @click="btn4Click">按钮四</button>
-			<button @click="btn5Click">按钮五</button>
+			<button @click="btn1Click()">按钮二</button>
+			
+			<!-- 在事件定义时候，写函数省略了小括号，但是方法本身需要一个参数,
+						这种情况Vue会默认将浏览器产生的event事件对象作为参数传入到方法中-->
+			<button @click="btn2Click">按钮三 无()</button> 
+			<button @click="btn2Click()">按钮三 有()</button> 
+			<button @click="btn2Click('test')">按钮三 有(test)</button> 
+				<!-- <button @click="btn2Click(123)">按钮三</button> -->
+			
+			<!-- 方法定义时如果需要同时传入某个参数，同时需要event，可以通过$event传入事件-->
+			<button @click="btn3Click">按钮四无()</button>
+			<button @click="btn3Click(event)">按钮四有(event)</button>
+			<button @click="btn3Click(123)">按钮四有(123)</button>
+			<button @click="btn3Click(123,$event)">按钮四有(123,$event)</button>
+			
 
 		</div>
 		<script src="../js/vue.js"></script>
@@ -19,8 +31,21 @@
 			const app = new Vue({
 				el:"#app",
 				data:{
-
-					
+					event:"hello Vue"
+				},
+				methods:{
+					btn1Click(){
+						console.log("test btn1Click")
+					},
+					// btn2Click(abc){
+					// 	console.log("------------",abc)
+					// }
+					btn2Click(event){
+						console.log("------------",event)
+					},
+					btn3Click(param,event){
+						console.log("333333333",param,event)
+					}
 				}
 			})
 		</script>

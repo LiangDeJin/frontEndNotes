@@ -194,7 +194,7 @@
 
 * 可以描述 new一个对象的详细过程，手动实现一个 new操作符
 
-* 理解 es6class构造以及继承的底层实现原理
+* 理解 es6 class构造以及继承的底层实现原理
 
 
 ### 3.作用域和闭包
@@ -349,7 +349,53 @@
 ### 1.JavaScript编码能力
 
 * 多种方式实现数组去重、扁平化、对比优缺点
+		  
+   ES6方式
+		1. 去除简单类型 
+		Set 类似于数组，但是成员的值都是唯一的，没有重复值
+		Set 方法 Set本身是一个构造函数，用来生成Set数据结构。
+		Array.from:允许JavaScript集合如（如数组，类数组对象或者字符串，map，set等可迭代对象）上进行有用的转换
+		
+		
+``` js
+		let data = [1,2,3,1,2,3]
+		function unique(array){
+			return Array.from(new Set(array))
+		}
+		console.log(unique(data))
+```
 
+
+		2. 去除引用类型 reduce 方法
+``` js		
+		arr.reduce(callback,[initialValue])
+		callback <!-- 包含四个参数-->
+		previousValue<!-- 上一次调用回调返回的值，或者是提供初始值（initialValue -->
+		currentValue <!-- 数组中当前被处理的元素-->
+		index <!-- 当前元素在数组中的索引-->
+		array <!-- 调用reduce的数组-->
+		
+		let array = [{
+			"name":"A",
+			"age":12
+		},{
+			"name":"A",
+			"age":12
+		},{
+			"name":"B",
+			"age":14
+		}]
+		
+		var hash = {};
+			
+		array = array.reduce(function(itemPre,current){
+			hash[current.name]?'':hash[current.name] = true && itemPre.push(current)
+			return itemPre
+		},[])
+			
+		console.log(array)
+		
+```
 
 * 多种方式实现深拷贝、对比优缺点
 
@@ -358,6 +404,12 @@
 
 
 * 手写防抖和节流工具函数、并理解其内部原理和应用场景
+
+	防抖： 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时
+	
+	
+	
+	节流： 规定在的单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效
 
 
 * 实现一个 sleep函数

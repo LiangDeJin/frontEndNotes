@@ -265,6 +265,25 @@
 ### 2.CSS
 
 * CSS盒模型，在不同浏览器的差异
+		
+	  不管是IE盒子模型还是W3C盒子标准模型 都是包含 content padding border mragin
+		不同的是
+		IE  怪异盒子模型   content 宽度 = content内容的宽度 + padding + border
+		W3C 标准盒模型 content 宽度 = content内容的宽度 
+		所以计算盒子占据的位置
+		IE盒子模型解释占据的位置 = content + margin
+		W3C 盒子模型解释占据的位置 = content + padding + border + margin
+		
+		为了避免不同浏览器产生效果不一样，通常我们统一会使用W3C标准盒子模型来 在网页的顶部加上doctype声明
+		<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+		
+		box-sizing:"border-box"
+		类似于IE怪异盒子模型 假设某个div 中的 css 设置这个属性后，设置的宽度就会包含padding 和 border
+		有时候我们设置了宽度，但是通过添加了padding 和border 时候，这个div所占据的真正宽度就会相应的变化，
+		这时候我们通过设置box-sizing 那么这个真实的宽度则不会变化，会通过自动调整content的宽度，来保证真实宽度不会变化
+		
+	
+		
 
 * CSS所有选择器及其优先级、使用场景，哪些可以继承，如何运用 at规则
 

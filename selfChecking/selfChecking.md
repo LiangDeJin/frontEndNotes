@@ -70,6 +70,7 @@
 	
 	[判断JS数据类型的四种方法](https://www.cnblogs.com/onepixel/p/5126046.html)
 	
+	
 * JavaScript对象的底层数据结构是什么 
 	
 	[从Chrome源码看JS Object的实现](https://zhuanlan.zhihu.com/p/26169639)
@@ -78,9 +79,7 @@
    HeadObject:提供存储基本功能
    JSReceiver:用于原型查找
    JSObject: JS Object       FixedArray:实际存储数据的地方
-   
-	
-	
+
 
 * Symbol类型在实际开发中的应用、可手动实现一个简单的 Symbol
 
@@ -138,6 +137,32 @@
 				o.p 
 
 * 至少可以说出三种判断 JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型
+	 
+   1.typeof
+	 优点：使用简单，基本类型（除了null）都可以使用typeof来准确判断，引用类型返回都是object，所有对象的原型链最终都是指向Object,万物皆对象
+	 缺点：有时候无法判断某个对象的具体类型 typeof null返回object 特殊值null被认为是一个空对象的引用
+	 
+	 2.instanceof
+	 优点：能检测出引用类型。就是利用原型链判断"父级"的原型对象是否在“实例”的原型链上，如果在则 true 否则 false 
+	 缺点：只能判断两个对象间是否有实例关系，无法准确判断实例具体数据类型。另外只能判断对象类型，原始类型是不可以的。并且所有的对象类型 instance Object 都是true
+				instance 不能跨 iframe
+				
+``` js				
+	 var  arry = [1,2,3,4];    
+	 var el = document.createElement('iframe');//在当前document中创建一个iframe
+	 document.append(el);
+	 arry instanceof window.Array // true
+	 arry instanceof window.frames[0].Array // false
+``` 
+	因为iframe 有自己单独的window对象，Array只是window下的一个属性，window对象不相等那么引入也不一样
+	 
+	 3.constructor
+	 优点：性能快 基本能检测出所有类型（除了null 和 undefined：null 和 undefined是无效的对象 所以不会有constructor存在）
+	 缺点：constructor不能跨 iframe ，另外容易被修改。主要是自定义的对象可以通过prototype的属性重写，原有的constructor引用会丢失，constructor会默认为object
+	 
+	 4.toString
+	 优点：tostring 是object原型上的方法，该方法默认返回其调用者的具体类型。是toString运行this指向的对象类型返回的类型。能检测出所有类型
+	 缺点：IE6 undefined和null均为Object
 
 * 可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用
 
@@ -148,7 +173,7 @@
 
 * 理解原型设计模式以及 JavaScript中的原型规则
 		
-		原型设计模式：
+   原型设计模式：
 		函数中不对属性进行定义，利用prototype（显式原型）去定义属性，这样可以让所有实例对象共享它包含的属性和方法
 		(GOF将原型设计模式引用为通过克隆的方式，将现有的对象模板创建对象的模式)
 		
@@ -158,23 +183,69 @@
 		3.所有的引用类型都有_proto_(隐式原型)属性，属性值是一个普通原型
 		4.引用类型的_proto_(隐式原型) === 其构造函数的prototype（显式原型） obj（实例）._proto_ === Object(构造函数).prototype（显式原型）=> 原型
 		5.当试图获取一个对象的属性是，如果对象本身没有这个属性那么去其_proto_(隐式原型)寻找【Object(构造函数).prototype（显式原型）】
-		
-		
+				
 		原型链
 		当尝试去获取对象f属性时，但是f中找不到该属性，我们就可以去f._proto_去寻找（也就是f的构造函数的prototype），如果f._proto_也没有就继续去f._proto_._proto_寻找（
 		f的构造函数的prototype的构造函数的prototype）寻找，这样一层一层向上查找形成的链式结构就是为原型链   直到原型为null为止 （object的prototype 为null）
 		
 * instanceof的底层实现原理，手动实现一个 instanceof
+		
+   instanceof：A instance B  判断 A 是否是 B 的实例 检测是原型
+	 查看对象B的prototype属性指向的对象原型是否在对象A的原型链上，如果在则 true 否则 false
+	 就是利用原型链判断"父级"的原型对象prototype是否在“实例”的原型链上
+		
+		实现instanceof
+``` js
+		function instance_of(left,right){
+			let _right = right.prototype;
+			_left = left.__proto__;
+			while(true){
+				if(_left === null){
+					return false
+				}
+				if(_left === _right){
+					return true
+					_left = left.__proto__
+				}	
+			}		
+		}
+``` 
+		假设去判断类型
+		1.typeof ：判断基本类型 例如 Boolean、Null、Undefined、Number、String 其他的引用类型和null返回object
+		2.instanceof：arr instance Array
+		
+		从 instanceof 能够判断出 [ ].__proto__  指向 Array.prototype，而 Array.prototype.__proto__ 又指向了Object.prototype，最终 Object.prototype.__proto__ 指向了null，标志着原型链的结束。
+		因此，[]、Array、Object 就在内部形成了一条原型链
+		
+		instance只能判断两个对象是否是实例关系，并不能判断一个对象实例具体属于哪种类型
+		3.constructor： ''.constructor == String   new Number(1).constructor == Number
+		一个函数被定义的时候，会有一个原型的属性 prototype（js引擎添加），然后会在protype添加constructor属性，并让它指向函数的引用
+		当 let f = new F() 时，F()被当做是构造函数，f是F()构造函数的实例对象 F原型的constructor就会传递到f上，f.constructor==F
+		F利用原型对象的constructor引用了自身，当F做为构造函数创建实例对象时候，原型上的constructor就会传递到新创建的对象上，从原型链角度看
+		F构造函数就是新对象的类型，那么新对象则可以通过constructor去寻找数据类型
+		true.constructor == Boolen //true
+		注意:1.null和undefined是无效的对象，所以是不会有constructor存在，需要其他方式判断
+		2.函数的constructor是不稳定，主要是自定义的对象可以通过prototype的属性重写，原有的constructor引用会丢失，constructor会默认为object
+		
+		4.toString：A.prototye.toString.call()
+		
+		toString 是原型的方法，调用这个方法返回的是对象的[[class]](内部属性)，[[class]]值为一个类型字符串，可以用来判断值的类型 格式[object XX] 而XX就是该对象的类型
+		对于object对象可以直接调用，返回就是[object,object] 其他对象就需要用call/apply来调用 如果其他对象直接使用toString 返回都是内容的字符串
+		call 方法的第一个参数会被当作 this，所以 arr.toString() 与 Object.prototype.toString.call(arr) 并没有改变 this，而是改变了调用的函数。
+		如 A.prototype.toString.call(23)  返回就是 [object,number]
+		
+		5.Array.isArray()  isArray()是ES5标准规定的判断数组类型的标准方法 
+		Array.isArray(object) 返回的是布尔值，如果object是数组返回true 否则为false
 
 * 实现继承的几种方式以及他们的优缺点
+
 
 		1.原型链继承
 			核心：将父类实例作为子类原型
 			优点：方法的复用	方法定义在父类的原型上，复用了父类构造函数的方法，如 say 方法
 			缺点：创建子类实例时候是不能传参
 						子类实例共享了父类构造函数的引用属性，如 arr 属性
-		
-		
+				
 		2.构造函数继承
 			核心：将父类构造函数的内容复制给子类的构造函数。这是所有继承中唯一一个不涉及到prototype的继承
 			优点：父类的引用属性不会被共享
@@ -182,7 +253,6 @@
 						（与原型链继承完全相反）
 			缺点：父类的方法不能复用，子类实例的方法每次都是单独创建
 			
-	
 		3.组合继承
 			核心：原型链继承和构造函数继承的组合，兼具两者优点
 			优点：父类的方法可以被复用
@@ -190,14 +260,12 @@
 					 子类构建实例时候可以向父类传参
 			缺点：调用两次父类的构造函数，第一次给子类的原型添加父类的name，arr 属性，第二次又给子类的构造函数添加了父类的name，arr属性
 						从而覆盖子类原型中的同名参数，这种被覆盖的情况造成性能上的浪费
-						
-		
+								
 		4.寄生继承
 			核心：
 			优点：
 			缺点：
-				
-		
+					
 		5.ES6 class
 			核心：
 			优点：
@@ -287,8 +355,7 @@
 		优点：1.离线浏览
 				 2.减少服务器负载 浏览器只从服务器下载更新过的或者更改过的资源
 				 3.速度 对已缓存的资源加载的更快
-				 
-				 
+				 				 
 		与传统浏览器缓存的区别
 		1.离线缓存可以是对整个应用，浏览器缓存则是单个文件
 		2.离线缓存可以离线访问依然能打开页面，浏览器缓存不可以
@@ -409,17 +476,14 @@
 		Set 类似于数组，但是成员的值都是唯一的，没有重复值
 		Set 方法 Set本身是一个构造函数，用来生成Set数据结构。
 		Array.from:允许JavaScript集合如（如数组，类数组对象或者字符串，map，set等可迭代对象）上进行有用的转换
-		
-		
-``` js
+			
+ ``` js
 		let data = [1,2,3,1,2,3]
 		function unique(array){
 			return Array.from(new Set(array))
 		}
 		console.log(unique(data))
-```
-
-
+ ```
 		2. 去除引用类型 reduce 方法
 ``` js		
 		arr.reduce(callback,[initialValue])
@@ -450,8 +514,13 @@
 		console.log(array)
 		
 ```
+	扁平化
+	
+	
+
 
 * 多种方式实现深拷贝、对比优缺点
+
 
 
 * 手写函数柯里化工具函数、并理解其应用场景和优势
@@ -469,6 +538,7 @@
 * 实现一个 sleep函数
 
 ### 2.手动实现前端轮子
+
 
 * 手动实现 call、apply、bind
 

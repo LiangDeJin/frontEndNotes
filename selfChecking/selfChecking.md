@@ -1,4 +1,4 @@
-## 根据自检清单 每日一记
+## 根据一名【合格】前端工程师的自检清单 每日一记
 
 来自 [一名【合格】前端工程师的自检清单](https://mp.weixin.qq.com/s?__biz=MzAwNDcyNjI3OA==&mid=2650842922&idx=1&sn=9430980473c8b55de16f13ec47b6cba9&chksm=80d38c43b7a40555c2bc3ae5801d554145ec547a0a2cea34d4ecd60f11eed6f94c59a4a05d9f&scene=0&xtrack=1&key=f8a21a8df9909cbbceeacb33f9612d5cb45858249099c33a4ecfa99ad453c192c27a62acbd22a496f9949636e9778ff013d7e2555ad88e403a664bb3955a1584c157ee34db81e5d55b2c34de354551aa&ascene=1&uin=MjkwNDAwMTQzNw%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&pass_ticket=FzRfPh7EJrl07iw1IJdj%2BlRCbQd9zm6HJh8Nfwg4xmawW9Z27DcogAEmNcixiGwc##)
 
@@ -278,7 +278,40 @@
 
 * 可以描述 new 一个对象的详细过程，手动实现一个 new操作符
 
-		1. 
+		1. 创建一个新的对象，同时继承对象类的原型，Person.prototype
+		2. 执行对象类的构造方法，同时该实例的属性和方法都会被this 引用，也就是this指向新构造的实例
+		3. 如果该构造函数return 一个新的对象，那么这个对象就会取代整个new出来的结果，如果构造函数没有return对象，那么就会返回1所创建的对象，隐式返回this
+		（一般情况下，构造函数是不会返回一个新的对象，如果用户想要覆盖这个对象，可以选择返回一个普通的对象来覆盖）
+		
+		
+		Object.create() 会使用指定的原型对象及其属性去创建一个新的对象
+		Object.create(proto,[propertiesObject])
+		proto
+		一个对象，应该是新创建的对象的原型。
+		propertiesObject
+		可选。该参数对象是一组属性与值，该对象的属性名称将是新创建的对象的属性名称，值是属性描述符（这些属性描述符的结构与Object.defineProperties()的第二个参数一样）。
+		注意：该参数对象不能是 undefined，另外只有该对象中自身拥有的可枚举的属性才有效，也就是说该对象的原型链上属性是无效的。
+		call
+		call()方法在使用一个指定的this值或若干个指定的参数值的前段提调用某个函数或方法，
+		作用：
+		1：就是借用另外一个对象的方法，而不需要拷贝
+		2：将伪数组变为真数组 伪数组就是一个包含length属性的json对象 他不是一个真数组，其实都是在模拟一个集合（描述集合数据）
+		apply
+		apply()方法用于解决一个对象如何调用不属于它的方法
+		只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。
+		call和apply好处:方便我们解耦，对象不需要和方法有任何的耦合性，能使我们写出更好的面相对象程序。
+
+		foo.call(this, arg1,arg2,arg3) == foo.apply(this, arguments) == this.foo(arg1, arg2, arg3)
+
+![new](../selfChecking/newfunction.jpg)
+``` js		
+		function newfunction(Obj,...args){
+			var obj = Object.create(Obj.prototype);
+			let result = Obj.apply(obj,args);
+			return typeof obj === "object"? result : obj
+		}
+		
+``` 
 
 * 理解 es6 class构造以及继承的底层实现原理
 		

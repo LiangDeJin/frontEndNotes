@@ -5,20 +5,19 @@
 		<title></title>
 		<link rel="stylesheet" href="common/common.css" />
 		<style>
+			/* 就可以实现不定宽高水平垂直居中 */
 			.parent{
-				position: relative;
+				display: flex;
+				align-items: center; /* 子元素垂直居中 */
+				justify-content: center;/* 子元素水平居中 */
 			}
 			.children{
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				margin: auto;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="parent">
-			<div class="children"> 块级元素垂直居中4 利用position和top/bottom和margin:auto（注意不是margin:0 auto）</div>
+			<div class="children"> 水平垂直居中4 flex布局</div>
 		</div>
 	</body>
 </html>

@@ -401,33 +401,229 @@
 ### 2.CSS
 
 * CSS盒模型，在不同浏览器的差异
-		
-	  不管是IE盒子模型还是W3C盒子标准模型 都是包含 content padding border mragin
-		不同的是
-		IE  怪异盒子模型   content 宽度 = content内容的宽度 + padding + border
-		W3C 标准盒模型 content 宽度 = content内容的宽度 
-		所以计算盒子占据的位置
-		IE盒子模型解释占据的位置 = content + margin
-		W3C 盒子模型解释占据的位置 = content + padding + border + margin
-		
-		为了避免不同浏览器产生效果不一样，通常我们统一会使用W3C标准盒子模型来 在网页的顶部加上doctype声明
-		<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
-		
-		box-sizing:"border-box"
-		类似于IE怪异盒子模型 假设某个div 中的 css 设置这个属性后，设置的宽度就会包含padding 和 border
-		有时候我们设置了宽度，但是通过添加了padding 和border 时候，这个div所占据的真正宽度就会相应的变化，
-		这时候我们通过设置box-sizing 那么这个真实的宽度则不会变化，会通过自动调整content的宽度，来保证真实宽度不会变化
-		
 	
-		
+	不管是IE盒子模型还是W3C盒子标准模型 都是包含 content padding border mragin
+	不同的是
+	IE  怪异盒子模型   content 宽度 = content内容的宽度 + padding + border
+	W3C 标准盒模型 content 宽度 = content内容的宽度 
+	所以计算盒子占据的位置
+	IE盒子模型解释占据的位置 = content + margin
+	W3C 盒子模型解释占据的位置 = content + padding + border + margin
+	
+	为了避免不同浏览器产生效果不一样，通常我们统一会使用W3C标准盒子模型来 在网页的顶部加上doctype声明
+	<!doctype html public "-//w3c//dtd xhtml 1.0 transitional//en" "http://www.w3.org/tr/xhtml1/dtd/xhtml1-transitional.dtd">
+	
+	box-sizing:"border-box"
+	类似于IE怪异盒子模型 假设某个div 中的 css 设置这个属性后，设置的宽度就会包含padding 和 border
+	有时候我们设置了宽度，但是通过添加了padding 和border 时候，这个div所占据的真正宽度就会相应的变化，
+	这时候我们通过设置box-sizing 那么这个真实的宽度则不会变化，会通过自动调整content的宽度，来保证真实宽度不会变化
 
-* CSS所有选择器及其优先级、使用场景，哪些可以继承，如何运用 at规则
+* CSS所有选择器及其优先级、使用场景，哪些可以继承，如何运用 at 规则
+
+	CSS 三个特性 继承，优先级和层叠
+	继承：子类元素继承父类的样式
+	优先级：是指不同类别样式的权重比较
+	层叠：是说当数量相同是，通过层叠（后者覆盖前者）的样式
+	
+	css 选择器
+	1.类选择器 （class="name"）
+	2.id选择器	（id="name"）
+	3.标签选择器（body li）
+	4.全局选择器 (*)
+	5.组合选择器（.head .head_log 空格隔开）
+	6.后代选择器（.nav ul li 父集到子孙集）
+	7.群组选择器（div,li,span{color:yellow}）
+	8.继承选择器（div p{}）
+	9.伪类选择器（ a 元素伪类 4个不同的状态 link visited active hover）
+	10.字符串匹配的属性选择符(^ $ *三种，分别对应开始、结尾、包含)
+	11.子选择器 (如：div>p ,带大于号>)
+	12.CSS 相邻兄弟选择器 (如：h1+p,带加号+)
+	
+	优先级
+	当两个规则都作用到同一个元素上时候，如果定义的属性有冲突，那么用谁的值 css有一套优先级的定义
+	
+	1.不同级别的
+	!import> style 行内样式 > id选择器 > class选择器 > 标签选择器 > 全局选择器 > 浏览器自定义或继承
+	
+	2.同级别的
+	后写的会覆盖先写的样式
+	多个级别的组合 　四个级别分别为：行内选择符、ID选择符、类别选择符、元素选择符。
+	
+	简洁，高效的css 
+	1. 不要在id选择器前使用标签
+	2. 不要在类选择器前使用标签
+	3. 少用层级关系
+	4. 使用类选择器代替层级关系（解析顺序是从右往左的解析的）
+	
+	css 选择器解析顺序：从右到左（从右往左进行解析还是会比从左往右解析要少很多次的匹配
+	从右往左进行匹配的时候，匹配的全部是DOM元素的父节点，而从左往右进行匹配的时候时候，
+	匹配的全部是DOM元素的子节点，这样就避免了HTML与CSS没有下载完需要进行等待的情形）
+	 
+	
+	继承（Inherited）
+[继承](https://www.jianshu.com/p/cd89de075079)
+	CSS继承：继承就是子标签继承了上级标签的CSS样式的属性
+	不可继承的：display、margin、border、padding、background、height、min-height、max-height、width、min-width、max-width、overflow、position、left、right、top、bottom、z-index、float、clear、table-layout、vertical-align、page-break-after、page-bread-before 和 unicode-bidi。
+	所有元素可继承：visibility 和 cursor。
+	内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
+	注意：<a>标签有自己的颜色和样式，不会继承自父元素
+	终端块状元素可继承：text-indent 和 text-align。
+	列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
+	表格元素可继承：border-collapse
+	
+	优先级的算法：
+	每个规则对应一个初始"四位数"：0、0、0、0
+	若是 行内选择符，则加 1、0、0、0
+	若是 ID选择符，则加 0、1、0、0
+	若是 类选择符/属性选择符/伪类选择符，则分别加 0、0、1、0
+	若是 元素选择符/伪元素选择符，则分别加 0、0、0、1
+	CSS是定义权重规则 标签的权重为1，class的权重为10，id的权重为100 行内1000
+	
+	@规则（at-rule）是一条语句 为css 提供了执行或如何执行的指令
+	@规则 分为常规规则和嵌套规则
+	常规规则
+	@[关键词](规则)
+	例如 
+	@charset 'utf-8'  定义字符集 
+	@important 'custom.css'  导入其他css样式文件
+	@namespace url(http://XXXX) 应用在XML(XHTML)特别有用，这样XHTML元素就可以作为选择器在css 中使用
+	
+	嵌套规则 是嵌套语句的子集,不仅可以作为样式表里的一个语句，也可以用在条件规则组里：
+	@[KEYWORD] {
+	  /* 嵌套语句 */
+	}
+	@media, 如果满足媒介查询的条件则条件规则组里的规则生效。
+	@media all and (min-width: 1280px) {
+    /* 宽度大于1280 */ 
+	}
+	
+	@page, 描述打印文档时布局的变化.
+	@page :first {
+	  margin: 1in;
+	}
+	
+	@font-face, 描述将下载的外部的字体 自定义字体。 
+	@font-face {
+	  font-family: 'MyWebFont';
+	  src:  url('myfont.woff2') format('woff2'),
+	        url('myfont.woff') format('woff');
+	}
+	
+	@keyframes, 描述 CSS 动画的中间步骤 . 
+	@keyframes fadeIn {
+	  0% {
+	    opacity: 0;
+	  }
+	  100% {
+	    opacity: 1;
+	  }
+	}
+	
+	@supports, 如果满足给定条件则条件规则组里的规则生效。 
+	/* 检查是否支持CSS声明 */ 
+	@supports (display: flex) {
+	  .module { display: flex; }
+	}
+	
+	@document, 如果文档样式表满足给定条件则条件规则组里的规则生效。 (推延至 CSS Level 4 规范)
+	[@document](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@document)
+	url(), 匹配整个URL
+	url-prefix(), 匹配文档的URL是否以参数指定的值开头
+	domain(), 匹配文档的域名是否为参数中指定的域名或者为它的子域名
+	regexp(), 匹配文档的URL是否和参数中指定的正则表达式匹配.该表达式必须匹配整个URL.
+	@document url("https://www.example.com/") {
+	  h1 {
+	    color: green;
+	  }
+	}
+
 
 * CSS伪类和伪元素有哪些，它们的区别和实际应用
+	:before
+	
 
 * HTML文档流的排版规则， CSS几种定位的规则、定位参照物、对文档流的影响，如何选择最好的定位方式，雪碧图实现原理
 
 * 水平垂直居中的方案、可以实现 6种以上并对比它们的优缺点
+
+[居中](https://github.com/Crystal-LDJ/frontEndNotes/blob/master/selfChecking/css)
+
+	<div class="parent">
+		<div class=children""></div>
+	</div>
+	
+	1. 绝对定位 + margin: auto
+	优点：兼容性好 Support IE8+，支持百分比宽高
+	缺点：必须声明高度，不适用Windows Phone
+	
+	.parent{
+		position:relative
+	}
+	.children{
+		position:absolute;
+		width: 200px;
+		height: 200px;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		margin:auto
+	}
+	
+	2. 绝对定位 + 负边距margin  根据已知 children div 的长宽
+	优点：容性好 Support All Browser
+	缺点：定宽高且不支持百分比
+	
+	.parent{
+		position:relative
+	}
+	.children{
+		position:absolute;
+		width:200px;
+		height:200px;
+		top:50%;
+		left:50%;
+		margin-top:-100px;
+		margin-left:-100px;
+	}
+	
+	3. 绝对定位 + transform
+	优点：简洁，不定宽高
+	缺点：浏览器兼容性（适合移动端）可能与其他transform属性冲突
+	
+	.parent{
+		position:relative
+	}
+	.children{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%)
+	}
+	
+	4. flex 布局
+	优点：只需要设置父元素就可以了 实现不定宽高水平垂直居中
+	缺点：相容性不好
+	.parent{
+		dispaly:flex;
+		align-items:center; /* 子元素垂直居中 */
+		justify-content: center;/* 子元素水平居中 */
+	}
+	.children{
+		
+	}
+	
+	5. table-cell 
+	优点：相容性高
+
+  .parent{
+		dispaly:table-cell;
+		text-align:center;
+		vertical-align:middle;
+	}
+	.children{
+		display:inline-block
+	}
 
 * BFC实现原理，可以解决的问题，如何创建 BFC7.可使用 CSS函数复用代码，实现特殊效果
 

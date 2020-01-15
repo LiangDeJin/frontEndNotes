@@ -252,14 +252,13 @@ Array.isArray(object) 返回的是布尔值，如果object是数组返回true �
 	核心：将父类实例作为子类原型
 	优点：方法的复用	方法定义在父类的原型上，复用了父类构造函数的方法
 	缺点：创建子类实例时候是不能传参
-				子类实例共享了父类构造函数的引用属性
+			子类实例共享了父类构造函数的引用属性
 		
 2.构造函数继承
 	方法：
 	核心：将父类构造函数的内容复制给子类的构造函数。这是所有继承中唯一一个不涉及到prototype的继承
 	优点：父类的引用属性不会被共享
-				子类构建实例时候可以向父类传参
-				（与原型链继承完全相反）
+			子类构建实例时候可以向父类传参(与原型链继承完全相反)
 	缺点：父类的方法不能复用，子类实例的方法每次都是单独创建
 	
 3.组合继承
@@ -774,8 +773,39 @@ console.log(array)
 
 
 * 多种方式实现深拷贝、对比优缺点
-
-
+``` 
+浅克隆：对象只会被克隆最外部的一层，至于更深层的对象，依然是通过引用指向一块堆内存.所以如果浅克隆对象，一个更改另外一个同样也被更改，因为两个指向的是同一个地址
+``` 
+``` js		
+function shallowClone(oldObject){
+	let newObject = {};
+	for(let i in oldObject){
+		newObject[i]=oldObject[i]
+	}
+	return newObject	
+}
+```
+``` 
+Object.assign()：可以吧任意多个的原对象自身的可枚举属性拷贝到目标对象，然后返回目标对象，但是进行的是浅拷贝，拷贝的是对象的属性的引用，而不是对象本身，
+但是呢如果object只有一层的时候是深拷贝
+Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。Object.assign(target, source1, source2);
+如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。
+```
+``` 
+深克隆：创建一个全新的对象，将原对象数据复制过去但是呢两者之间没有任何关系
+```
+``` js		
+function deepClone(oldObject){
+	if( typeof oldObject !="Object"){
+		return oldObject
+	}
+	let newObject = {};
+	for(let i in oldObject){
+		newObject[i]=deepClone(oldObject[i])
+	}
+	return newObject	
+}
+```
 
 * 手写函数柯里化工具函数、并理解其应用场景和优势
 

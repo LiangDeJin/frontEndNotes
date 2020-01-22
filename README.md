@@ -11,7 +11,7 @@
 
 ## 一、JavaScript基础
 
-### 1.JavaScript基础
+### 1.JavaScript基础 
 * JavaScript规定了几种语言类型
 
 <font color=#eea236>Boolean、Null、Undefined、Number、String、Object、Symbol (ES6 引入新的原始数据类型)</font>

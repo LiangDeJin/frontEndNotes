@@ -920,7 +920,7 @@ function throttle(fn,delay){
 	
 	节点：包含数据项，和指向其他节点的指针
 	节点的度：节点所拥有的子树的数量
-```        
+```
 ![度](selfChecking/tree.png)
 ``` 
 

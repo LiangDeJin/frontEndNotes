@@ -80,7 +80,7 @@
 * JavaScript对象的底层数据结构是什么 
 	
 [从Chrome源码看JS Object的实现](https://zhuanlan.zhihu.com/p/26169639)
-![object 类图](../selfChecking/object.png)
+![object 类图](selfChecking/object.png)
 ```  
 Object:根父母
 HeadObject:提供存储基本功能
@@ -921,7 +921,7 @@ function throttle(fn,delay){
 	节点：包含数据项，和指向其他节点的指针
 	节点的度：节点所拥有的子树的数量
 ```        
-![度](../selfChecking/tree.png)
+![度](selfChecking/tree.png)
 ``` 
 
 叶节点：度为0的节点被称为叶节点
@@ -1297,7 +1297,6 @@ Git (分布式版本控制) 不依赖特定的服务器完成功能 客户端不
 2.分支方面
 
 在版本管理方面，分支是最常见的使用功能。例如开发分支，稳定分支等等
-
 SVN 是没有本地分支。在SVN中分支就是一个完整的目录，且这个目录有完整的实际文件。如果想知道是否合并某一个分支 只需要手动运行 命令svn:mergeinfo 来确认分支是否被合并。而Git 分支是指针指向某次提交,处理Git分支可以在同一个工作目录下快速在几个分支切换。SVN 有一个switch功能，可以在同一个工作树上使用switch 在不同分支切换
 
 3.存储方式

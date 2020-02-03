@@ -690,11 +690,7 @@ BFC(Block formatting context):块级格式化上下文
 		第三步，在每组前面添加两个0，每组由6个变为8个二进制位，总共32个二进制位，即四个字节。
 		第四步，根据Base64编码对照表获得对应的值。
 	
-	@document url("https://blog.csdn.net/wo541075754/article/details/81734770") {
-		h1 {
-			color: green;
-		}
-	}
+	[一篇文章彻底弄懂Base64编码原理](https://blog.csdn.net/wo541075754/article/details/81734770)
 ```
 
 * 几种进制的相互转换计算方法，在 JavaScript中如何表示和转换

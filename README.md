@@ -257,8 +257,44 @@ Array.isArray(object) 返回的是布尔值，如果object是数组返回true �
 ``` 
 1.原型链继承
 核心：将父类实例作为子类原型
-优点：方法的复用 方法定义在父类的原型上，复用了父类构造函数的方法
-缺点：创建子类实例时候是不能传参，子类实例共享了父类构造函数的引用属性
+优点：
+1.方法的复用 方法定义在父类的原型上，复用了父类构造函数的方法 父类新增原型方法/原型属性，子类都能访问得到
+2.简单，易于实现
+3.纯粹的继承关系，实例是子类的实例也是父类的实例
+缺点：
+1.创建子类实例时候是不能传参
+2.子类实例共享了父类构造函数的引用属性
+```
+```js
+function Animal(){
+	this.name = "animal";
+	this.colors = ["black","yellow"]
+}
+Animal.prototype = {
+	sayName:function(){
+		console.log(this.name)
+	}
+}
+
+function Cat(){
+	this.color = "white"
+}
+Cat.prototype = new Animal();
+// 子对象的方法其实是定义再父类对象的实例上
+Cat.prototype.sayColor = function(){
+	console.log(this.color)
+}
+
+let cat1 = new Cat();
+let cat2 = new Cat();
+console.log(cat1);
+cat1.colors.push("greg");
+console.log(cat1);
+console.log(cat2)
+cat1.sayColor();
+cat1.sayName();
+```
+![new](selfChecking\prototype.jpg)
 		
 2.构造函数继承
 核心：将父类构造函数的内容复制给子类的构造函数。这是所有继承中唯一一个不涉及到prototype的继承

@@ -89,6 +89,21 @@ JSObject: JS Object       FixedArray:实际存储数据的地方
 ``` 
 
 * Symbol类型在实际开发中的应用、可手动实现一个简单的 Symbol
+``` 
+ES5 对象属性名都是字符串类型，容易造成属性名的冲突
+ES6 引入 Symbol的原因就是为了保证每个属性的名字都是独一无二，从根本上防止属性名冲突
+
+Symbol 值是通过Symbol函数生成。
+所以对象的属性名有两种类型
+1. 字符串
+2. Symbol 类型
+
+Symbol不能使用 new 命令，因为Symb是原始类型的值，不是对象。由于Symbol值不是对象，所以不能添加属性
+Symbol 函数可以接受一个字符串作为参数
+
+let s = Symbol("test")
+Symbol 函数的参数值表示对当前Symbol值的描述，相同参数的Symbol函数的返回值是不相等 
+```   
 
 * JavaScript中的变量在内存中的具体存储形式
 

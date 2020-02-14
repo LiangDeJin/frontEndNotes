@@ -1,9 +1,12 @@
 ## 小笔记
-### git方面
--  [解决git提交代码每次都需要输入密码问题](gitNotes/generateCertificate.md)
 
 ### 学习Vue
 -  [Vue node](learnVue/vue-node.md)
+
+### 其他方面
+-  [解决git提交代码每次都需要输入密码问题](gitNotes/generateCertificate.md)
+-  [npm 安装报错 error network 'proxy' config is set properly.](other/npm_error.md)
+-  [npm notes](other/npm-notes.md)
 
 ## 根据一名【合格】前端工程师的自检清单 每日一记
 

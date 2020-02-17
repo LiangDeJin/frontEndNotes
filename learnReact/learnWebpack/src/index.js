@@ -1,2 +1,5 @@
 import './index.css'
-console.log("welcome !")
+import './app.less'
+import { add } from './test'
+add(1,2);
+console.log("welcome!!")

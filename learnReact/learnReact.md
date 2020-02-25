@@ -10,6 +10,8 @@
 
 ### react 
 ```
+rcc rfc
+
 dangerouslySetInnerHTML:dangerouslySetInnerHTML 是 React 为浏览器 DOM 提供 innerHTML 的替换方案。
 <div dangerouslySetInnerHTML ={{__html: this.state.divContent} }></div>
 ```

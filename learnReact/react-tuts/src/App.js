@@ -45,8 +45,8 @@ export default class App extends Component {
   }
 
   addTodo = (todoTitle) => {
-    console.log(todoTitle)
-    console.log(this.state.todos)
+    // console.log(todoTitle)
+    // console.log(this.state.todos)
     // const newtodos = this.state.todos.slice()
     // const newtodos = [...this.state.todos]
     // newtodos.push({
@@ -83,7 +83,7 @@ export default class App extends Component {
   }
 
   onCompletedChange = (id) =>{
-    console.log(id)
+    // console.log(id)
     this.setState((preState)=>{
       return {
         todos:preState.todos.map(todo =>{

@@ -6,14 +6,14 @@ export default class TodoItem extends PureComponent {
   // constructor(props){
   //   super()
   //   this.state = {
-  //     completeText:props.isComplete? '完成' : '未完成'
+  //     completeText:props.completed? '完成' : '未完成'
   //   }
   // }
 
   // 需要借助componentWillReceiveProps来做一次修正
   // UNSAFE_componentWillUpdate(nextProps){
   //   this.setState({
-  //     completeText:nextProps.isComplete ? '完成' : '未完成'
+  //     completeText:nextProps.completed ? '完成' : '未完成'
   //   })
   // }
 
@@ -26,16 +26,16 @@ export default class TodoItem extends PureComponent {
   }
 
   static getDerivedStateFromProps(props){
-    console.log(props)
+    // console.log(props)
     return {
-      completeText: props.isComplete? '完成' : '未完成'
+      completeText: props.completed? '完成' : '未完成'
     }
   }
 
 
 
   handleCheckboxChange = () =>{
-    // console.log(this.props.isComplete)
+    // console.log(this.props.completed)
     // this.props.onCompletedChange && this.props.onCompletedChange(this.props.id) 
     const {
       // onCompletedChange = () =>{},
@@ -48,13 +48,13 @@ export default class TodoItem extends PureComponent {
   // shouldComponentUpdate(nextProps,nextState){
   //   // console.log(nextProps)
   //   // console.log(nextState)
-  //   return nextProps.isComplete !== this.props.isComplete
+  //   return nextProps.completed !== this.props.completed
   // }
 
   render(){
     const {
       id,
-      isComplete,
+      completed,
       title
     } = this.props
 
@@ -63,12 +63,12 @@ export default class TodoItem extends PureComponent {
       <li>
         <input 
           type="checkbox"
-          checked = {isComplete}
+          checked = {completed}
           onChange = {this.handleCheckboxChange}
         ></input>
         <span>
           {id} {title} 
-          {/* {isComplete? "完成":"未完成"} */}
+          {/* {completed? "完成":"未完成"} */}
           {this.state.completeText}
         </span>
         

@@ -8,13 +8,13 @@ export default class TodoList extends Component {
     todos:PropTypes.arrayOf(PropTypes.shape({
       id:PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      isComplete:PropTypes.bool.isRequired
+      completed:PropTypes.bool.isRequired
     })).isRequired,
     onCompletedChange:PropTypes.func
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <ul>
         {
@@ -25,7 +25,7 @@ export default class TodoList extends Component {
                 key = {todo.id}  
                 // id = {todo.id} 
                 // title = {todo.title}
-                // isComplete = {todo.isComplete}
+                // completed = {todo.completed}
                 {...todo}
               />
             )

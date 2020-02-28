@@ -44,7 +44,7 @@ HOC Higher-Order component
 ```
 让cra 支持@装饰器写法
 1.不管你是要配置什么，我们最好的方式是使用react-app-rewired这个包来对cra创建的项目进行轻微的配置调整
-2.安装好之后，在package.json里吧scripts里的react-scripts 替换成eact-app-rewired
+2.安装好之后，在package.json里吧scripts里的react-scripts 替换成react-app-rewired
 3.在根目录下创建一个config-overrides.js
 ```
 ```js

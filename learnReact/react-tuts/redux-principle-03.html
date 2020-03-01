@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>redux原理02</title>
+  <title>redux原理03</title>
 </head>
 <body>
   <div>
@@ -15,6 +15,7 @@
 
   </div>
 
+  <script src="https://cdn.bootcss.com/redux/4.0.5/redux.js"></script>
   <script>
     const countDisplay = document.querySelector('#countDisplay')
     const countState = {
@@ -59,28 +60,29 @@
 
   //  const createStore = (state,changeState) => {
   //  const createStore = (changeState) => {
-  const createStore = (reducer) => {
-    let state = null
-    const getState = () => state 
-    const listeners = []
-    const subscribe = (listener) => listeners.push(listener)
-    const dispatch = (action) =>{
-      state = changeState(state,action)
-      console.log(state)
-      listeners.forEach(listener => listener())
-    }
-    console.log(dispatch)
-    dispatch({})
-    return {
-      getState,
-      subscribe,
-      dispatch
-    }      
-   }
+  // const createStore = (  ) => {
+  //   let state = null
+  //   const getState = () => state 
+  //   const listeners = []
+  //   const subscribe = (listener) => listeners.push(listener)
+  //   const dispatch = (action) =>{
+  //     state = changeState(state,action)
+  //     console.log(state)
+  //     listeners.forEach(listener => listener())
+  //   }
+  //   console.log(dispatch)
+  //   dispatch({})
+  //   return {
+  //     getState,
+  //     subscribe,
+  //     dispatch
+  //   }      
+  //  }
 
 
   //  const store = createStore(countState,changeState)
-   const store = createStore(changeState)
+  //  const store = createStore(changeState)
+   const store = Redux.createStore(changeState)
   //  console.log(store)
   //  console.log(store.getState)
   //  console.log(store.getState())

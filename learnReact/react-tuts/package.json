@@ -12,7 +12,7 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,6 +36,7 @@
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "axios": "^0.19.2",
     "customize-cra": "^0.9.1",
-    "react-app-rewired": "^2.1.5"
+    "react-app-rewired": "^2.1.5",
+    "redux": "^4.0.5"
   }
 }

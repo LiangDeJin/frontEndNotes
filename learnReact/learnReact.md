@@ -62,5 +62,16 @@ const {override,addDecoratorsLegacy} =require('customize-cra')
 module.exports = override(
   addDecoratorsLegacy()
 )
+
+ "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
 ```
+
+-  [redux](https://www.redux.org.cn/)
+-  [bootcdn](https://www.bootcdn.cn/)
+-  [redux](https://www.bootcdn.cn/redux/)
 

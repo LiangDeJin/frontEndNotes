@@ -18,3 +18,6 @@ export { default as Like } from './Like'
 
 export { default as CountBtn } from './CountBtn'
 export { default as Counter } from './Counter'
+
+
+export { default as CardList} from './CardList'

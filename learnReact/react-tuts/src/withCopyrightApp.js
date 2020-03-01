@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { CardList } from './components'
+// import withCopyright from './withCopyright'
+import Another from './Another'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <CardList></CardList>
+        App
+        <Another name="组件"></Another>
       </div>
     )
   }

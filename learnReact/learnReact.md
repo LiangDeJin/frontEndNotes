@@ -1,5 +1,5 @@
 ## 学习 React 
-
+![生命周期](React15.png)
 ### 使用
 -  [create-react-app](https://www.npmjs.com/package/create-react-app)
 

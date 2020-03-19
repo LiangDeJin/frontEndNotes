@@ -1,5 +1,5 @@
 ## 学习 React 
-![生命周期](React15.png)
+![生命周期](./React15.png)
 ### 使用
 -  [create-react-app](https://www.npmjs.com/package/create-react-app)
 
@@ -75,3 +75,112 @@ module.exports = override(
 -  [bootcdn](https://www.bootcdn.cn/)
 -  [redux](https://www.bootcdn.cn/redux/)
 
+
+
+--------------------------项目学习------------------------------------
+-  [Lodash](https://www.lodashjs.com/)
+_.pick(object, [props])
+创建一个从 object 中选中的属性的对象。
+
+参数
+object (Object): 来源对象。
+[props] (...(string|string[])): 要被忽略的属性。（注：单独指定或指定在数组中。）
+返回
+(Object): 返回新对象。
+
+例子
+var object = { 'a': 1, 'b': '2', 'c': 3 };
+ 
+_.pick(object, ['a', 'c']);
+// => { 'a': 1, 'c': 3 }
+
+
+
+_.flow([funcs])
+创建一个函数。 返回的结果是调用提供函数的结果，this 会绑定到创建函数。 每一个连续调用，传入的参数都是前一个函数返回的结果。
+
+添加版本
+3.0.0
+
+参数
+[funcs] (...(Function|Function[])): 要调用的函数。
+返回
+(Function): 返回新的函数。
+
+例子
+function square(n) {
+  return n * n;
+}
+ 
+var addSquare = _.flow([_.add, square]);
+addSquare(1, 2);
+// => 9
+
+
+
+
+
+promise是什么？
+1、主要用于异步计算
+2、可以将异步操作队列化，按照期望的顺序执行，返回符合预期的结果
+3、可以在对象之间传递和操作promise，帮助我们处理队列
+
+promise是一个对象，对象和函数的区别就是对象可以保存状态，函数不可以（闭包除外）
+并未剥夺函数return的能力，因此无需层层传递callback，进行回调获取数据
+代码风格，容易理解，便于维护
+多个异步等待合并便于解决
+
+new Promise(
+  function (resolve, reject) {
+    // 一段耗时的异步操作
+    resolve('成功') // 数据处理完成
+    // reject('失败') // 数据处理出错
+  }
+).then(
+  (res) => {console.log(res)},  // 成功
+  (err) => {console.log(err)} // 失败
+)
+
+-  [PropTypes进行类型检测](https://segmentfault.com/a/1190000007814801)
+
+// 某种类型的数组
+  optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),
+
+  // 具有某种类型的属性值的对象
+  optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),
+
+   // 采取特定样式的对象
+  optionalObjectWithShape: React.PropTypes.shape({
+    color: React.PropTypes.string,
+    fontSize: React.PropTypes.number
+  }),
+
+
+  immutable
+
+  reselect
+
+
+  stamp 接口
+
+
+  时间戳的 位数不一致 转换  在 dao 那层改(进出口)
+
+  react-redux
+
+  connect
+  connect的作用是把UI组件（无状态组件）和业务逻辑代码的分开，然后通过connect再链接到一起，让代码更加清晰和易于维护。
+  这也是React-Redux最大的优点
+
+  映射关系就是把原来的state映射成组件中的props属性
+const mapStateToProps = state => ({data: state.data})
+
+const mapDispatchToProps = dispatch => ({
+    handleClick: (data) => dispatch(aciton(data))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(View); 
+
+
+  compose
+  https://www.jianshu.com/p/47b80356c67a

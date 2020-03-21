@@ -117,6 +117,27 @@ addSquare(1, 2);
 // => 9
 
 
+_.get(object, path, [defaultValue])
+根据 object对象的path路径获取值。 如果解析 value 是 undefined 会以 defaultValue 取代。
+object (Object): 要检索的对象。
+path (Array|string): 要获取属性的路径。
+[defaultValue] (*): 如果解析值是 undefined ，这值会被返回。
+返回
+
+(*): 返回解析的值。
+
+例子
+
+var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ 
+_.get(object, 'a[0].b.c');
+// => 3
+ 
+_.get(object, ['a', '0', 'b', 'c']);
+// => 3
+ 
+_.get(object, 'a.b.c', 'default');
+// => 'default'
 
 
 
@@ -173,14 +194,30 @@ new Promise(
   这也是React-Redux最大的优点
 
   映射关系就是把原来的state映射成组件中的props属性
-const mapStateToProps = state => ({data: state.data})
+  const mapStateToProps = state => ({data: state.data})
 
-const mapDispatchToProps = dispatch => ({
-    handleClick: (data) => dispatch(aciton(data))
-})
+  const mapDispatchToProps = dispatch => ({
+      handleClick: (data) => dispatch(aciton(data))
+  })
 
-export default connect(mapStateToProps,mapDispatchToProps)(View); 
+  export default connect(mapStateToProps,mapDispatchToProps)(View); 
 
+  
 
   compose
   https://www.jianshu.com/p/47b80356c67a
+
+
+在 React 项目中，遇到了上面的报错信息。
+Super expression must either be null or a function, not undefined
+确认一下React.Component是否书写正确，不是React.component或者React.Comonent…（这是我个人的问题，component 拼写错误） 
+
+
+React解决长列表方案(react-virtualized)
+
+
+ i18n = getLocaleHelper();
+ this.i18n.t('commonText.result.operateOk')
+
+ const t = getLocaleHelper().t;
+ t('views.workflow.stepValidate.allMember')

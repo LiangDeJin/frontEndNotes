@@ -215,9 +215,3 @@ Super expression must either be null or a function, not undefined
 
 React解决长列表方案(react-virtualized)
 
-
- i18n = getLocaleHelper();
- this.i18n.t('commonText.result.operateOk')
-
- const t = getLocaleHelper().t;
- t('views.workflow.stepValidate.allMember')

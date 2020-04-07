@@ -11,6 +11,7 @@
 -  [npm 安装报错 error network 'proxy' config is set properly.](other/npm_error.md)
 -  [npm notes](other/npm-notes.md)
 -  [安装依赖 eslint](other/eslint_error.md)
+-  [终端翻墙](other/terminals.md)
 
 ## 根据一名【合格】前端工程师的自检清单 每日一记
 

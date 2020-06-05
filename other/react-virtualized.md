@@ -55,3 +55,5 @@ onSortEnd这个函数可以解构两个形参。{oldIndex, newIndex} 一个是�
 axis 是拖拽的方向，默认是 y ，垂直拖拽，x 表示只可以水平拖拽
 array-move 就一个 API，它的主要作用就是用来交换数组中元素的位置。
 ```
+
+

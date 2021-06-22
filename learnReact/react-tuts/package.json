@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "customize-cra": "^0.9.1",
     "react-app-rewired": "^2.1.5",
     "redux": "^4.0.5"
